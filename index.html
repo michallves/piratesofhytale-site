@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pirates of the Hytale</title>
+<meta name="description" content="A global PvP server for Hytale: form a crew, sail physics-based ships and fight other nations at sea.">
+<meta property="og:title" content="Pirates of the Hytale">
+<meta property="og:description" content="Form a crew, sail physics-based ships and fight other nations at sea.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b2a31">
+<style>
+:root{--bg:#071c21;--panel:#0f3b44;--panel2:#0b2a31;--gold:#e0b34a;--cream:#f3e6c4;--mut:#a9c0c3;--line:#1f5560}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,#12515c 0,transparent 60%),var(--bg);color:var(--cream);
+ font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--gold)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{font-weight:800;letter-spacing:.04em;color:var(--gold);text-decoration:none;font-size:18px}
+.lang{display:flex;gap:6px}
+.lang button{background:transparent;border:1px solid var(--line);color:var(--mut);padding:6px 10px;border-radius:6px;cursor:pointer;font:inherit;font-size:13px}
+.lang button[aria-pressed=true]{background:var(--gold);color:#1a1405;border-color:var(--gold);font-weight:700}
+.hero{padding:56px 0 40px;text-align:center}
+.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.08;margin:0 0 14px;color:#fff}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:640px;margin:0 auto 26px;color:var(--mut);font-size:18px}
+.badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:3px 12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.join{display:inline-flex;gap:0;border:1px solid var(--gold);border-radius:10px;overflow:hidden;background:var(--panel2)}
+.join code{padding:14px 18px;font-size:18px;color:#fff;font-family:ui-monospace,Consolas,monospace}
+.join button{background:var(--gold);color:#1a1405;border:0;padding:0 20px;font:inherit;font-weight:800;cursor:pointer}
+.hint{color:var(--mut);font-size:14px;margin-top:10px}
+section{padding:34px 0}
+h2{font-size:26px;margin:0 0 18px;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{margin:0 0 6px;color:var(--gold);font-size:18px}
+.card p{margin:0;color:var(--cream)}
+.steps{counter-reset:s;display:grid;gap:12px;padding:0;list-style:none;max-width:720px}
+.steps li{counter-increment:s;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px 56px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:14px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#1a1405;font-weight:800;display:grid;place-items:center}
+.note{background:var(--panel2);border-left:4px solid var(--gold);padding:14px 16px;border-radius:6px;color:var(--cream)}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:26px 0 40px;color:var(--mut);font-size:14px}
+footer p{margin:6px 0}
+[lang-only]{display:none}
+html[data-l=en] [lang-only=en],html[data-l=pt] [lang-only=pt]{display:revert}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="brand" href="#">PIRATES OF THE HYTALE</a>
+  <div class="lang" role="group" aria-label="Language">
+    <button data-set="en" aria-pressed="true">EN</button>
+    <button data-set="pt" aria-pressed="false">PT</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="badge"><span lang-only="en">Open beta</span><span lang-only="pt">Beta aberto</span></div>
+  <h1><span lang-only="en">Form a crew.<br><span>Rule the seas.</span></span><span lang-only="pt">Forme uma tripulação.<br><span>Domine os mares.</span></span></h1>
+  <p lang-only="en">A global PvP server for Hytale. Sail physics-based ships with your crew and fight other nations at sea.</p>
+  <p lang-only="pt">Um servidor PvP global para Hytale. Navegue em navios com física real com a sua tripulação e enfrente outras nações no mar.</p>
+  <div class="join"><code id="addr">piratesofhytale.com</code><button id="copy"><span lang-only="en">Copy</span><span lang-only="pt">Copiar</span></button></div>
+  <div class="hint"><span lang-only="en">In Hytale: Servers &rarr; Add server &rarr; paste the address. No port needed.</span><span lang-only="pt">No Hytale: Servidores &rarr; Adicionar servidor &rarr; cole o endereço. Sem porta.</span></div>
+</div>
+
+<section id="about">
+  <h2><span lang-only="en">What is it</span><span lang-only="pt">O que é</span></h2>
+  <div class="grid">
+    <div class="card"><h3><span lang-only="en">Real ship physics</span><span lang-only="pt">Física real de navios</span></h3>
+      <p lang-only="en">Hulls float, take damage and sink. Build and repair your ship as you sail.</p>
+      <p lang-only="pt">Cascos flutuam, sofrem dano e afundam. Construa e conserte seu navio enquanto navega.</p></div>
+    <div class="card"><h3><span lang-only="en">Crews, not lone wolves</span><span lang-only="pt">Tripulações</span></h3>
+      <p lang-only="en">Join an open crew or form your own, with roles, a captain and a flag.</p>
+      <p lang-only="pt">Entre numa tripulação aberta ou forme a sua, com funções, um comandante e uma bandeira.</p></div>
+    <div class="card"><h3><span lang-only="en">Nation vs. nation</span><span lang-only="pt">Nação contra nação</span></h3>
+      <p lang-only="en">Players from everywhere sail together. Bring friends from your country and take on the world.</p>
+      <p lang-only="pt">Jogadores do mundo todo navegam juntos. Chame amigos do seu país e enfrente o mundo.</p></div>
+    <div class="card"><h3><span lang-only="en">Built for the world</span><span lang-only="pt">Feito para o mundo</span></h3>
+      <p lang-only="en">The interface follows your game language. More languages are on the way.</p>
+      <p lang-only="pt">A interface segue o idioma do seu jogo. Mais idiomas estão a caminho.</p></div>
+  </div>
+</section>
+
+<section id="join">
+  <h2><span lang-only="en">How to play</span><span lang-only="pt">Como jogar</span></h2>
+  <ol class="steps">
+    <li><span lang-only="en">Open Hytale and go to the server list.</span><span lang-only="pt">Abra o Hytale e vá para a lista de servidores.</span></li>
+    <li><span lang-only="en">Add the address <b>piratesofhytale.com</b>.</span><span lang-only="pt">Adicione o endereço <b>piratesofhytale.com</b>.</span></li>
+    <li><span lang-only="en">Press Sail to start solo, or join or form a crew.</span><span lang-only="pt">Aperte Navegar para começar sozinho, ou entre ou forme uma tripulação.</span></li>
+  </ol>
+</section>
+
+<section id="support">
+  <h2><span lang-only="en">Support the server</span><span lang-only="pt">Apoie o servidor</span></h2>
+  <div class="note">
+    <span lang-only="en">Donations are one-time and voluntary. They grant a permanent <b>Supporter</b> title and a place on the supporters wall. There is no gameplay advantage and no subscription. Refunds and chargebacks revoke the donation.</span>
+    <span lang-only="pt">Doações são únicas e voluntárias. Concedem o título permanente de <b>Apoiador</b> e um lugar no mural de apoiadores. Não há vantagem no jogo nem assinatura. Reembolso ou chargeback revoga a doação.</span>
+  </div>
+</section>
+
+<footer>
+  <p><span lang-only="en">Independent community project, operated by</span><span lang-only="pt">Projeto comunitário independente, operado por</span> <b>michallves</b></p>
+  <p><span lang-only="en">Contact:</span><span lang-only="pt">Contato:</span> <a href="https://github.com/michallves/piratesofhytale-site/issues">GitHub</a></p>
+  <p lang-only="en">Pirates of the Hytale is an independent community server and is not affiliated with, endorsed or sponsored by Hypixel Studios or Hytale. Hytale is a trademark of its respective owners.</p>
+  <p lang-only="pt">Pirates of the Hytale é um servidor comunitário independente e não é afiliado, endossado nem patrocinado pela Hypixel Studios ou pelo Hytale. Hytale é marca de seus respectivos donos.</p>
+  <p lang-only="en">This site does not use cookies or trackers. We store only the language you pick, in your browser.</p>
+  <p lang-only="pt">Este site não usa cookies nem rastreadores. Guardamos só o idioma escolhido, no seu navegador.</p>
+</footer>
+</div>
+<script>
+(function(){
+  var h=document.documentElement,k="potlang";
+  function set(l){h.setAttribute("data-l",l);h.lang=l==="pt"?"pt-BR":"en";
+    document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.set===l)});
+    try{localStorage.setItem(k,l)}catch(e){}}
+  var s=null;try{s=localStorage.getItem(k)}catch(e){}
+  set(s||((navigator.language||"en").toLowerCase().indexOf("pt")===0?"pt":"en"));
+  document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){set(b.dataset.set)})});
+  document.getElementById("copy").addEventListener("click",function(){
+    var t=document.getElementById("addr").textContent,b=this,o=b.innerHTML;
+    function done(){b.textContent="✓";setTimeout(function(){b.innerHTML=o},1200)}
+    if(navigator.clipboard)navigator.clipboard.writeText(t).then(done,done);else done();
+  });
+})();
+</script>
+</body>
+</html>
